@@ -33,7 +33,6 @@ app.post("/api/notes", function (req, res) {
     newNote.id = uuid();
     note.push(newNote);
     res.json(newNote);
-    console.log(newNote.id);
 });
 
 //---------------Delete Note------------------------
