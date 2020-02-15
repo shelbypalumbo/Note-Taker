@@ -113,12 +113,13 @@ var renderNoteList = function(notes) {
     var note = notes[i];
 
     var $li = $("<li class='list-group-item'>").data(note);
-    var $span = $("<span>").text(note.title);
+    var $span = $("<b><span></b>").text(note.title);
+    var $body = $("<p>").text(note.text);
     var $delBtn = $(
       "<i class='fas fa-trash-alt float-right text-danger delete-note'>"
     );
 
-    $li.append($span, $delBtn);
+    $li.append($span, $body, $delBtn);
     noteListItems.push($li);
   }
 
@@ -138,6 +139,7 @@ $newNoteBtn.on("click", handleNewNoteView);
 $noteList.on("click", ".delete-note", handleNoteDelete);
 $noteTitle.on("keyup", handleRenderSaveBtn);
 $noteText.on("keyup", handleRenderSaveBtn);
+
 
 // Gets and renders the initial list of notes
 getAndRenderNotes();
