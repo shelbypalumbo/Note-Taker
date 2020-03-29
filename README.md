@@ -1,5 +1,6 @@
 # Note-Taker
 A note taking application that allows a user to write to, save, and delete notes.
+<br>
 https://safe-lake-34410.herokuapp.com/
 ## User Story
 As a student and full time employee, it is important to take notes through the day, so that I can go back to my ideas, grocery lists, etc. when I have the time.
