@@ -4,6 +4,21 @@ html, body {
   padding: 0;
 }
 
+body {
+  background-image: url("images/stickyNotes.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  background-color: rgb(7, 43, 7);
+}
+
+.jumbotron {
+  background-color: white;
+  opacity: 80%;
+}
+
 .save-note {
   display: none;
 }
