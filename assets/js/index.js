@@ -1,8 +1,8 @@
-var $noteTitle = $(".note-title");
-var $noteText = $(".note-textarea");
-var $saveNoteBtn = $(".save-note");
-var $newNoteBtn = $(".new-note");
-var $noteList = $(".list-container .list-group");
+var noteTitle = $(".note-title");
+var noteText = $(".note-textarea");
+var saveNoteBtn = $(".save-note");
+var newNoteBtn = $(".new-note");
+var noteList = $(".list-container .list-group");
 
 // activeNote is used to keep track of the note in the textarea
 var activeNote = {};
@@ -34,26 +34,26 @@ var deleteNote = function(id) {
 
 // If there is an activeNote, display it, otherwise render empty inputs
 var renderActiveNote = function() {
-  $saveNoteBtn.hide();
+  saveNoteBtn.hide();
 
   if (activeNote.id) {
-    $noteTitle.attr("readonly", true);
-    $noteText.attr("readonly", true);
-    $noteTitle.val(activeNote.title);
-    $noteText.val(activeNote.text);
+    noteTitle.attr("readonly", true);
+    noteText.attr("readonly", true);
+    noteTitle.val(activeNote.title);
+    noteText.val(activeNote.text);
   } else {
-    $noteTitle.attr("readonly", false);
-    $noteText.attr("readonly", false);
-    $noteTitle.val("");
-    $noteText.val("");
+    noteTitle.attr("readonly", false);
+    noteText.attr("readonly", false);
+    noteTitle.val("");
+    noteText.val("");
   }
 };
 
 // Get the note data from the inputs, save it to the db and update the view
 var handleNoteSave = function() {
   var newNote = {
-    title: $noteTitle.val(),
-    text: $noteText.val()
+    title: noteTitle.val(),
+    text: noteText.val()
   };
 
   saveNote(newNote).then(function(data) {
@@ -96,16 +96,16 @@ var handleNewNoteView = function() {
 // If a note's title or text are empty, hide the save button
 // Or else show it
 var handleRenderSaveBtn = function() {
-  if (!$noteTitle.val().trim() || !$noteText.val().trim()) {
-    $saveNoteBtn.hide();
+  if (!noteTitle.val().trim() || !noteText.val().trim()) {
+    saveNoteBtn.hide();
   } else {
-    $saveNoteBtn.show();
+    saveNoteBtn.show();
   }
 };
 
 // Render's the list of note titles
 var renderNoteList = function(notes) {
-  $noteList.empty();
+  noteList.empty();
 
   var noteListItems = [];
 
@@ -123,7 +123,7 @@ var renderNoteList = function(notes) {
     noteListItems.push($li);
   }
 
-  $noteList.append(noteListItems);
+  noteList.append(noteListItems);
 };
 
 // Gets notes from the db and renders them to the sidebar
@@ -133,14 +133,12 @@ var getAndRenderNotes = function() {
   });
 };
 
-$saveNoteBtn.on("click", handleNoteSave);
-$noteList.on("click", ".list-group-item", handleNoteView);
-$newNoteBtn.on("click", handleNewNoteView);
-$noteList.on("click", ".delete-note", handleNoteDelete);
-$noteTitle.on("keyup", handleRenderSaveBtn);
-$noteText.on("keyup", handleRenderSaveBtn);
-
+saveNoteBtn.on("click", handleNoteSave);
+noteList.on("click", ".list-group-item", handleNoteView);
+newNoteBtn.on("click", handleNewNoteView);
+noteList.on("click", ".delete-note", handleNoteDelete);
+noteTitle.on("keyup", handleRenderSaveBtn);
+noteText.on("keyup", handleRenderSaveBtn);
 
 // Gets and renders the initial list of notes
 getAndRenderNotes();
-
