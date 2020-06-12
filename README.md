@@ -16,18 +16,17 @@ On the home page, there is a "Get Started" button that redirects the used to the
 #### Write
 
 From this page, a user can write, save, and delete notes!
-![write](assets/css/images/saved.png)
+![write](assets/css/images/savedNote.png)
 
 #### Save
 
 Jot down items in a note for grocery shoppping after work!
-![two tasks](assets/css/images/save.png)
+![two tasks](assets/css/images/newNote.png)
 Or take down notes to remind yourself about a phone call you have to make later!
 
 #### Delete
 
-Once you no longer need the note, go ahead an click on the trash can to delete it.
-![delete](assets/css/images/remove.png)
+Once you no longer need a note, click on the trash can to remove the post.
 
 ## Programming Languages Used
 
